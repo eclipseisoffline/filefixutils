@@ -14,6 +14,8 @@ multimod {
 
     minecraft {
         minecraft = libs.minecraft
+        supportedMinecraftVersions = ">=26.1~"
+        neoForgeSupportedMinecraftVersions = "26.1"
     }
 
     neoForgeVersion = libs.versions.neoforge
