@@ -1,3 +1,5 @@
 # File Fix Utils
 
-This project consists of a simple modloader-agnostic API for Minecraft's `FileFix` system.
+File Fix Utils is a simple modloader-agnostic API for Minecraft's `FileFix` system.
+
+Artefacts are available at [maven.eclipseisoffline.xyz](https://maven.eclipseisoffline.xyz).
