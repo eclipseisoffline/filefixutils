@@ -12,6 +12,9 @@ description='''${mod_description}'''
 [[mixins]]
 config="filefixutils.mixins.json"
 
+[[mixins]]
+config="filefixutils-neoforge.mixins.json"
+
 [[dependencies]]
     modId="minecraft"
     type="required"

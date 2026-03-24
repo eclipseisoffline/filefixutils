@@ -3,7 +3,8 @@
 ![GitHub License](https://img.shields.io/github/license/eclipseisoffline/filefixutils)
 ![Maven version](https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fmaven.eclipseisoffline.xyz%2Freleases%2Fxyz%2Feclipseisoffline%2Ffilefixutils-common%2Fmaven-metadata.xml)
 
-File Fix Utils is a simple modloader-agnostic API for Minecraft's `FileFix` system.
+File Fix Utils is a simple modloader-agnostic API for Minecraft's `FileFix` system. It has helper methods to aid
+the migration to namespaced saved-data in Minecraft 26.1.
 
 Artefacts are available at [maven.eclipseisoffline.xyz](https://maven.eclipseisoffline.xyz).
 
@@ -70,5 +71,42 @@ And in your `neoforge.mods.toml`:
     side="BOTH"
 ```
 
-Once you've done that, you can use the library in your code. Please note that on Fabric, you need to register file fixes
-in a `preLaunch` entrypoint.
+Because Minecraft builds file fixes very early in the game loading process, a special entrypoint is required to be used
+to register new file fixes. Your entrypoint needs to implement `FileFixInitializer`:
+
+```java
+public class FileFixRegisterer implements FileFixInitializer {
+
+    @Override
+    public void onFileFixPopulate() {
+        // Register your file fixes HERE:
+        FileFixSchemaRegister.register((fileFixerUpper, schema, version) -> {
+            // code
+        });
+        // Helpers to register file fixes:
+        FileFixHelpers.registerGlobalDataMoveFileFix("example_data", Identifier.fromNamespaceAndPath("example_mod", "example_data"));
+    }
+}
+```
+
+In your `fabric.mod.json`, you then need to add this entrypoint as follows:
+
+```json
+{
+  "entrypoints": {
+    "filefix": [
+      "org.example.mod.FileFixRegisterer"
+    ]
+  }
+}
+```
+
+On NeoForge, the entrypoint is run as a service. You need to add your class to the `META-INF/services/xyz.eclipseisoffline.filefixutils.api.FileFixInitializer` file in your project:
+
+```text
+# META-INF/services/xyz.eclipseisoffline.filefixutils.api.FileFixInitializer
+org.example.mod.FileFixRegisterer
+```
+
+Once you've done that, your file fixes should be registered at start up. Of course, be sure to verify they actually work
+when upgrading old worlds!

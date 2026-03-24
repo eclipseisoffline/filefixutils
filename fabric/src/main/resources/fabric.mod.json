@@ -20,7 +20,8 @@
   "license": "Apache-2.0",
   "environment": "*",
   "mixins": [
-    "filefixutils.mixins.json"
+    "filefixutils.mixins.json",
+    "filefixutils-fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
