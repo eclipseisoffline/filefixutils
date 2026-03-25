@@ -22,13 +22,13 @@ repositories {
 
 dependencies {
     // For your common module:
-    implementation("xyz.eclipseisoffline:filefixutils-common:0.1.1-26.1")
+    implementation("xyz.eclipseisoffline:filefixutils-common:0.1.2-26.1")
     
     // For your Fabric module:
-    implementation("xyz.eclipseisoffline:filefixutils-fabric:0.1.1-26.1")
+    implementation("xyz.eclipseisoffline:filefixutils-fabric:0.1.2-26.1")
     
     // For your NeoForge module:
-    implementation("xyz.eclipseisoffline:filefixutils-neoforge:0.1.1-26.1")
+    implementation("xyz.eclipseisoffline:filefixutils-neoforge:0.1.2-26.1")
 }
 ```
 
@@ -46,7 +46,7 @@ multimod {
     }
 
     sharedDependencies {
-        multiModInclude(multiModImplementation("xyz.eclipseisoffline:filefixutils:0.1.1-26.1"))
+        multiModInclude(multiModImplementation("xyz.eclipseisoffline:filefixutils:0.1.2-26.1"))
     }
 }
 ```

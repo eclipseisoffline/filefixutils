@@ -16,8 +16,8 @@ config="filefixutils.mixins.json"
 config="filefixutils-neoforge.mixins.json"
 
 [[dependencies]]
-    modId="minecraft"
-    type="required"
-    versionRange="${neoforge_minecraft_version}"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+type="required"
+versionRange="${neoforge_minecraft_version}"
+ordering="NONE"
+side="BOTH"
