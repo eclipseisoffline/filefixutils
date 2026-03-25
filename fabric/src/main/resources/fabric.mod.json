@@ -13,9 +13,9 @@
     }
   ],
   "contact": {
-    "homepage": "https://github.com/${github_repository}",
-    "issues": "https://github.com/${github_repository}/issues",
-    "sources": "https://github.com/${github_repository}"
+    "homepage": "https://github.com/eclipseisoffline/filefixutils",
+    "issues": "https://github.com/eclipseisoffline/filefixutils/issues",
+    "sources": "https://github.com/eclipseisoffline/filefixutils"
   },
   "license": "Apache-2.0",
   "environment": "*",
@@ -26,5 +26,12 @@
   "depends": {
     "fabricloader": ">=${fabric_loader_version}",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "library"
+      ]
+    }
   }
 }

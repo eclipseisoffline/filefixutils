@@ -1,11 +1,11 @@
 license="Apache-2.0"
-issueTrackerURL="https://github.com/${github_repository}/issues"
+issueTrackerURL="https://github.com/eclipseisoffline/filefixutils/issues"
 
 [[mods]]
 modId="${mod_id}"
 version="${version}"
 displayName="${mod_name}"
-displayURL="https://github.com/${github_repository}"
+displayURL="https://github.com/eclipseisoffline/filefixutils"
 authors="eclipseisoffline"
 description='''${mod_description}'''
 
